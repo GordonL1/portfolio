@@ -1,3 +1,8 @@
+# this file implements an interpreter in Python for a programming language that I developed.
+# The language is statically typed, turing complete, has minimal syntax, and uses Polish notation
+# This means that in order to write "3 + 4", we would write "+ 3 4"
+# Although my language is statically typed, I have yet to implement type checking. I plan on implementing this when I port my interpreter to Rust.
+
 import math
 import sys
 
