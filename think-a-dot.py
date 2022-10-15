@@ -1,3 +1,6 @@
+# This simulates a Think-A-Dot (https://en.wikipedia.org/wiki/Think-a-Dot)
+# Given a starting position and an ending position, this can determine the quickest series of moves to get between the two
+
 # for n in range(2**8):
 #   print('{0:08b}'.format(n))
 
