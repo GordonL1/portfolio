@@ -1,6 +1,14 @@
+# This is a program I built for IB Physics
+# Essentially, this can use the SUVAT equations to find a missing value
+# S = displacement
+# U = starting velocity
+# V = ending velocity
+# A = acceleration
+# T = time
+
 import math
 
-# print("Enter SUVATs equations, enter N/A for ones you want to know")
+print("Enter SUVATs equations, enter N/A for ones you want to know")
 
 s = input("s> ")
 u = input("u> ")
