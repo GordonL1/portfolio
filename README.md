@@ -3,7 +3,7 @@ Basic portfolio with some of my recent projects and other prorgamming/computer t
 
 
 # Current Projects
-Currently I'm working on writing a basic operating system + shell in Rust. I'm using a tutorial from os.phil-opp.com to get started, but I plan on reimplementing my programming language interpreter so my OS can run prorgams in my prgramming language.
+Currently I'm working on writing a basic operating system + shell in Rust. I'm using a tutorial from os.phil-opp.com to get started, but I'd like to reimplement my programming language interpreter so that my OS can run prorgams in my prgramming language.
 
 
 # Future Projects
