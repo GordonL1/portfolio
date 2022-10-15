@@ -1,0 +1,12 @@
+This includes the PCB files, footprints, and gerber files I used to create a fully custom keyboard for stenography.
+Stenography is a method of typing that usually requires expensive specialty equiptment, but it also allows one to type at hundreds of words per minute, 
+many times faster than regular keyboards allow.
+However, I don't have the thousands of dollars required to buy one of these professional keyboards, so I decided to design my own.
+The total cost of my materials was about $90, but if I didn't have to order PCBs, it would be much cheaper.
+Even at the $90 price, my machine is cheaper than anything else currently available.
+Additionally, I included a full number row, not present on most other machines. This number row allows for QWERTY typing as well as stenography,
+and it allows one to type numbers much faster while typing code using stenography.
+
+This machine must be paired with Plover (an open source stenography engine) to use stenography.
+
+Please see the image stenographykeyboard.jpg
