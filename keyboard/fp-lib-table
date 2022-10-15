@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name "pico")(type "KiCad")(uri "/home/generic_account/Desktop/KiCad-RP-Pico/RP-Pico Libraries/MCU_RaspberryPi_and_Boards.pretty")(options "")(descr ""))
+  (lib (name "chocReversible")(type "KiCad")(uri "${KIPRJMOD}/keyswitches.pretty")(options "")(descr ""))
+  (lib (name "keebio")(type "KiCad")(uri "${KIPRJMOD}/Keebio-Parts.pretty")(options "")(descr ""))
+)

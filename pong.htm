@@ -1,0 +1,188 @@
+<html>
+
+<head>
+
+    <title>Pong</title>
+    <style type='text/css'>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        canvas#ballpen {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='ballpen'></canvas>
+
+    <script type='text/javascript'>
+        let canvas = null
+        let keys = []
+
+        let ball = {
+            radius: 10,
+            x: 0, //center x
+            y: 0, //center y
+            velX: 10,
+            velY: 10,
+
+            move: function () {
+                this.x += this.velX
+                this.y += this.velY
+
+                // this.velX *= 1.01
+                // this.velY *= 1.01
+            }
+
+        }
+        let paddle1 = {
+            x: 0,
+            y: 0,
+            width: 20,
+            height: 200,
+
+            // move: function(){
+            //     // this.x += 1
+            //     this.y += 1
+            // }            
+
+        }
+        let paddle2 = {
+            x: 0,
+            y: 0,
+            width: 20,
+            height: 200,
+
+            // move: function(){
+            //     // this.x += 1
+            //     this.y += 1
+            // }            
+
+        }
+        // make paddle objects
+
+
+        function init() {
+            canvas = document.getElementById('ballpen')
+            canvas.width = canvas.clientWidth
+            canvas.height = canvas.clientHeight
+
+            paddle1.y = canvas.height / 2
+            paddle1.x = paddle1.width * 2
+            paddle2.y = canvas.height / 2
+            paddle2.x = canvas.width - paddle2.width * 2
+
+            document.addEventListener("keyup", keyUp)
+            document.addEventListener("keydown", keyDown)
+
+            ball.x = canvas.width / 2
+            ball.y = canvas.height / 2
+
+            requestAnimationFrame(nextFrame)
+        }
+
+        function keyUp(event) {
+            delete keys[event.key]
+        }
+
+
+        function keyDown(event) {
+            let target = event.key
+            console.log(target)
+            keys[target] = true
+        }
+
+        function doesCollide(R1, R2) {
+            if (!(R1.x + R1.width < R2.x) && !(R1.y + R1.height < R2.y) && !(R1.x > R2.x + R2.radius) && !(R1.y > R2.y +
+                    R2.radius) && !(R2.y <= R1.y)) {
+                if (R1 == paddle1) {
+                    ball.x = R1.x + R1.width
+                    ball.velX *= -1
+                } else if (R1 == paddle2) {
+                    ball.x = R1.x - ball.radius
+                    ball.velX *= -1
+                }
+            }
+        }
+
+        function engageSuperiorAI() {
+            paddle1.y = ball.y - paddle1.height / 2
+            return paddle1.y
+
+        }
+
+        //draws next frame to the canvas
+        function nextFrame(time) {
+            let pen = canvas.getContext('2d')
+            pen.clearRect(0, 0, canvas.width, canvas.height)
+
+            //uncomment to engage ultimate opponent
+            //paddle1.y = engageSuperiorAI()
+
+            if ("w" in keys) {
+                if (paddle1.y >= 0){
+                    paddle1.y -= 10
+                }
+            }
+            if ("s" in keys) {
+                if (paddle1.y + paddle1.height <= canvas.height){
+                    paddle1.y += 10
+                }
+            }
+            if ("ArrowUp" in keys) {
+                if (paddle2.y >= 0){
+                    paddle2.y -= 10
+                }
+            }
+            if ("ArrowDown" in keys) {
+                if (paddle2.y + paddle2.height <= canvas.height){
+                    paddle2.y += 10
+                }
+            }
+
+
+
+            ball.move()
+            if (ball.y + ball.radius > canvas.height) {
+                ball.y = canvas.height - ball.radius
+                ball.velY *= -1
+            }
+            if (ball.x + ball.radius > canvas.width) {
+                ball.x = canvas.width - ball.radius
+                ball.velX *= -1
+            }
+            if (ball.y < 0) {
+                ball.y += ball.radius * 2
+                ball.velY *= -1
+            }
+            if (ball.x < 0) {
+                ball.x += ball.radius * 2
+                ball.velX *= -1
+            }
+
+
+
+            doesCollide(paddle1, ball)
+
+            doesCollide(paddle2, ball)
+
+            pen.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height)
+            pen.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height)
+
+            pen.beginPath()
+            pen.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI)
+            pen.fill()
+
+            requestAnimationFrame(nextFrame)
+        }
+
+        window.onload = init
+    </script>
+</body>
+
+</html>

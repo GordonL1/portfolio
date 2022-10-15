@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name "pico")(type "KiCad")(uri "${KIPRJMOD}/RP-Pico Libraries/MCU_RaspberryPi_and_Boards.kicad_sym")(options "")(descr ""))
+  (lib (name "switch")(type "KiCad")(uri "${KIPRJMOD}/switch.kicad_sym")(options "")(descr ""))
+  (lib (name "pj-320")(type "KiCad")(uri "${KIPRJMOD}/trrs.kicad_sym")(options "")(descr ""))
+)
